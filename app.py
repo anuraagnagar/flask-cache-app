@@ -88,13 +88,13 @@ def delete_user(user_id):
             cursor = connection.cursor()
 
             # Execute SQL Statement to fetch a user by ID
-            cursor.execute("SELECT * FROM users WHERE id = %s", (user_id))
+            cursor.execute(f"SELECT * FROM users WHERE id = {user_id}")
 
             user = cursor.fetchone()
 
             if user:
                 # Executing delete SQL statement.
-                cursor.execute("DELETE FROM users WHERE id = %s", (user_id))
+                cursor.execute(f"DELETE FROM users WHERE id = {user_id}")
 
                 # Commit the changes to the database
                 connection.commit()
