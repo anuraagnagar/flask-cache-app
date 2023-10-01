@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Home - Flask Cache App{% endblock %}
+
+{% block body %}
+
+<div class="container-md">
+    <div class="my-5">
+        <div class="d-flex justify-content-center mb-3">
+            <h1 class="me-5">All User</h1>
+            <a href="{{ url_for('create_user') }}" class="btn btn-primary my-auto">Create User</a>
+        </div>
+        <hr class="my-4">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                {% if users %}
+                {% for user in users %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex mb-3">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/{{user[0]}}.webp"
+                                class="rounded-circle me-3" style="height: 60px; width: 60px;" alt="Avatar" />
+                            <div class="column">
+                                <h4 class="card-title fw-bold mb-1">{{ user[2] }}</h4>
+                                <p class="card-title">{{ user[1] }}</p>
+                            </div>
+                        </div>
+                        <p class="card-text fw-bold mb-1">Email</p>
+                        <h6 class="card-subtitle text-muted mb-3">{{ user[3] }}</h6>
+                        <p class="card-text fw-bold mb-1">About</p>
+                        <h6 class="card-subtitle text-muted mb-3">{{ user[4] }}</h6>
+                        <p class="card-text fw-bold mb-1">Created</p>
+                        <h6 class="card-subtitle text-muted">{{ user[5]|date_time }}</h6>
+                        <a href="{{ url_for('delete_user', user_id=user[0]) }}"
+                            class="btn btn-danger px-4 mt-3">Delete</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <h1 class="text-center my-5">No User Found</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
