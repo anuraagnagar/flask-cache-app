@@ -25,13 +25,35 @@ git clone https://github.com/anuraagnagar/flask-cache-app.git
 cd flask-cache-app
 ```
 
-### 3. Install dependency packages.
+### 3. Create and Activate the Virtual Environment.
+
+On Windows
+
+```bash
+python -m venv venv
+```
+
+```bash
+venv\Scripts\activate
+```
+
+On Mac/Linux
+
+```bash
+python3 -m venv venv
+```
+
+```bash
+source venv/bin/activate
+```
+
+### 4. Install dependency packages.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Start the server.
+### 5. Start the server.
 
 ```bash
 python app.py
