@@ -27,7 +27,7 @@ def date_time(timestamp):
 
 
 @app.route('/')
-# @cache.cached(timeout=60)
+@cache.cached(timeout=60)
 def index():
     try:
         # Create a cursor
